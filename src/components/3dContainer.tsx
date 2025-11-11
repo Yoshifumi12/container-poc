@@ -62,8 +62,9 @@ const Container3D: React.FC<Container3DProps> = ({
             </Box>
 
             <Text
-              position={[0, item.height / 2 + 0.1, 0]}
-              fontSize={0.1}
+              position={[0, 0, item.length / 2 + 0.01]}
+              fontSize={Math.min(item.height, item.width, item.length) * 0.3}
+              textAlign="center"
               color="black"
               anchorX="center"
               anchorY="middle"
