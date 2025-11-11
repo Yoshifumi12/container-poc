@@ -1,8 +1,8 @@
 import { Item, PlacedItem, PackingResult } from "../components/types";
 
 const CONTAINER_SPECS = {
-  "20ft": { width: 2.35, height: 2.39, length: 5.9, maxWeight: 28200 },
-  "40ft": { width: 2.35, height: 2.39, length: 12.03, maxWeight: 28700 },
+  "20ft": { width: 2.35, height: 2.39, length: 5.89, maxWeight: 28200 },
+  "40ft": { width: 2.35, height: 2.39, length: 12.05, maxWeight: 28700 },
 };
 
 export class PackingCalculator {

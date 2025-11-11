@@ -8,8 +8,8 @@ import Container3D from "./3dContainer";
 import ItemForm from "./ItemForm";
 
 const CONTAINERS: Container[] = [
-  { type: "20ft", width: 2.44, height: 2.59, length: 6.06, maxWeight: 28200 },
-  { type: "40ft", width: 2.44, height: 2.59, length: 12.19, maxWeight: 28700 },
+  { type: "20ft", width: 2.35, height: 2.39, length: 5.89, maxWeight: 28200 },
+  { type: "40ft", width: 2.35, height: 2.39, length: 12.05, maxWeight: 28700 },
 ];
 
 const PackingVisualization: React.FC = () => {
