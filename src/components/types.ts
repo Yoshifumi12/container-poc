@@ -3,7 +3,7 @@ export interface Item {
   name: string;
   width: number;
   height: number;
-  depth: number;
+  length: number;
   weight: number;
   color?: string;
 }
@@ -12,7 +12,7 @@ export interface Container {
   type: "20ft" | "40ft";
   width: number;
   height: number;
-  depth: number;
+  length: number;
   maxWeight: number;
 }
 

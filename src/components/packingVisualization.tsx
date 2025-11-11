@@ -8,8 +8,8 @@ import Container3D from "./3dContainer";
 import ItemForm from "./ItemForm";
 
 const CONTAINERS: Container[] = [
-  { type: "20ft", width: 2.44, height: 2.59, depth: 6.06, maxWeight: 28200 },
-  { type: "40ft", width: 2.44, height: 2.59, depth: 12.19, maxWeight: 28700 },
+  { type: "20ft", width: 2.44, height: 2.59, length: 6.06, maxWeight: 28200 },
+  { type: "40ft", width: 2.44, height: 2.59, length: 12.19, maxWeight: 28700 },
 ];
 
 const PackingVisualization: React.FC = () => {
@@ -28,7 +28,9 @@ const PackingVisualization: React.FC = () => {
 
   return (
     <div className="w-full p-2 space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800">POC for Container Placement</h1>
+      <h1 className="text-3xl font-bold text-gray-800">
+        POC for Container Placement
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
@@ -58,7 +60,7 @@ const PackingVisualization: React.FC = () => {
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>Width: {selectedContainer.width}m</div>
               <div>Height: {selectedContainer.height}m</div>
-              <div>Depth: {selectedContainer.depth}m</div>
+              <div>Length: {selectedContainer.length}m</div>
               <div>Max Weight: {selectedContainer.maxWeight}kg</div>
             </div>
           </div>
@@ -135,7 +137,7 @@ const PackingVisualization: React.FC = () => {
                     {packingResult.remainingItems.map((item) => (
                       <div key={item.id} className="text-sm text-red-700">
                         {item.name} ({item.width}m × {item.height}m ×{" "}
-                        {item.depth}m)
+                        {item.length}m)
                       </div>
                     ))}
                   </div>

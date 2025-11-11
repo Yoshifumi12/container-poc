@@ -16,18 +16,18 @@ const ItemForm: React.FC<ItemFormProps> = ({ items, onItemsChange }) => {
     name: "",
     width: 0,
     height: 0,
-    depth: 0,
+    length: 0,
     weight: 0,
   });
 
   const [cmWidth, setCmWidth] = useState("");
   const [cmHeight, setCmHeight] = useState("");
-  const [cmDepth, setCmDepth] = useState("");
+  const [cmLength, setCmLength] = useState("");
 
   const addItem = () => {
     const w = parseFloat(cmWidth) || 0;
     const h = parseFloat(cmHeight) || 0;
-    const d = parseFloat(cmDepth) || 0;
+    const d = parseFloat(cmLength) || 0;
     const weight = newItem.weight;
 
     if (newItem.name.trim() && w > 0 && h > 0 && d > 0 && weight > 0) {
@@ -36,15 +36,15 @@ const ItemForm: React.FC<ItemFormProps> = ({ items, onItemsChange }) => {
         name: newItem.name.trim(),
         width: cmToM(w),
         height: cmToM(h),
-        depth: cmToM(d),
+        length: cmToM(d),
         weight,
       };
       onItemsChange([...items, item]);
 
-      setNewItem({ name: "", width: 0, height: 0, depth: 0, weight: 0 });
+      setNewItem({ name: "", width: 0, height: 0, length: 0, weight: 0 });
       setCmWidth("");
       setCmHeight("");
-      setCmDepth("");
+      setCmLength("");
     }
   };
 
@@ -98,13 +98,13 @@ const ItemForm: React.FC<ItemFormProps> = ({ items, onItemsChange }) => {
 
         <div>
           <label className="block text-sm font-medium mb-1">
-            Depth <span className="text-xs text-gray-500">(cm)</span>
+            Length <span className="text-xs text-gray-500">(cm)</span>
           </label>
           <input
             type="number"
             placeholder="100"
-            value={cmDepth}
-            onChange={(e) => setCmDepth(e.target.value)}
+            value={cmLength}
+            onChange={(e) => setCmLength(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             min="1"
             step="1"
@@ -152,7 +152,7 @@ const ItemForm: React.FC<ItemFormProps> = ({ items, onItemsChange }) => {
                 <div className="flex gap-3 text-xs text-gray-600 mt-1">
                   <span>W: {(item.width * 100).toFixed(0)} cm</span>
                   <span>H: {(item.height * 100).toFixed(0)} cm</span>
-                  <span>D: {(item.depth * 100).toFixed(0)} cm</span>
+                  <span>L: {(item.length * 100).toFixed(0)} cm</span>
                   <span>Weight: {item.weight} kg</span>
                 </div>
               </div>

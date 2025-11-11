@@ -21,7 +21,7 @@ const Container3D: React.FC<Container3DProps> = ({
         <pointLight position={[10, 10, 10]} />
 
         <group position={[0, container.height / 2, 0]}>
-          <Box args={[container.width, container.height, container.depth]}>
+          <Box args={[container.width, container.height, container.length]}>
             <meshStandardMaterial
               color="#ff0000"
               transparent
@@ -32,13 +32,13 @@ const Container3D: React.FC<Container3DProps> = ({
 
           <Box
             args={[container.width, 0.05, 0.05]}
-            position={[0, -container.height / 2, -container.depth / 2]}
+            position={[0, -container.height / 2, -container.length / 2]}
           >
             <meshStandardMaterial color="#333" />
           </Box>
           <Box
             args={[0.05, container.height, 0.05]}
-            position={[-container.width / 2, 0, -container.depth / 2]}
+            position={[-container.width / 2, 0, -container.length / 2]}
           >
             <meshStandardMaterial color="#333" />
           </Box>
@@ -50,10 +50,10 @@ const Container3D: React.FC<Container3DProps> = ({
             position={[
               item.position[0] + item.width / 2 - container.width / 2,
               item.position[1] + item.height / 2,
-              item.position[2] + item.depth / 2 - container.depth / 2,
+              item.position[2] + item.length / 2 - container.length / 2,
             ]}
           >
-            <Box args={[item.width, item.height, item.depth]}>
+            <Box args={[item.width, item.height, item.length]}>
               <meshStandardMaterial
                 color={item.color}
                 transparent

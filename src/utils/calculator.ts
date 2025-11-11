@@ -1,13 +1,8 @@
-import {
-  Item,
-  Container,
-  PlacedItem,
-  PackingResult,
-} from "../components/types";
+import { Item, PlacedItem, PackingResult } from "../components/types";
 
 const CONTAINER_SPECS = {
-  "20ft": { width: 2.35, height: 2.39, depth: 5.9, maxWeight: 28200 },
-  "40ft": { width: 2.35, height: 2.39, depth: 12.03, maxWeight: 28700 },
+  "20ft": { width: 2.35, height: 2.39, length: 5.9, maxWeight: 28200 },
+  "40ft": { width: 2.35, height: 2.39, length: 12.03, maxWeight: 28700 },
 };
 
 export class PackingCalculator {
@@ -24,18 +19,18 @@ export class PackingCalculator {
     let totalWeight = 0;
 
     const sortedItems = [...items].sort(
-      (a, b) => b.width * b.height * b.depth - a.width * a.height * a.depth
+      (a, b) => b.width * b.height * b.length - a.width * a.height * a.length
     );
 
     for (const item of sortedItems) {
       const fitsWidth = currentPosition[0] + item.width <= container.width;
       const fitsHeight = currentPosition[1] + item.height <= container.height;
-      const fitsDepth = currentPosition[2] + item.depth <= container.depth;
+      const fitsLength = currentPosition[2] + item.length <= container.length;
 
       if (
         fitsWidth &&
         fitsHeight &&
-        fitsDepth &&
+        fitsLength &&
         totalWeight + item.weight <= container.maxWeight
       ) {
         placedItems.push({
@@ -58,7 +53,7 @@ export class PackingCalculator {
         if (currentPosition[1] + item.height > container.height) {
           currentPosition[0] = 0;
           currentPosition[1] = 0;
-          currentPosition[2] += item.depth;
+          currentPosition[2] += item.length;
         }
 
         const index = remainingItems.findIndex((i) => i.id === item.id);
@@ -68,9 +63,9 @@ export class PackingCalculator {
       }
     }
 
-    const totalVolume = container.width * container.height * container.depth;
+    const totalVolume = container.width * container.height * container.length;
     const usedVolume = placedItems.reduce(
-      (sum, item) => sum + item.width * item.height * item.depth,
+      (sum, item) => sum + item.width * item.height * item.length,
       0
     );
     const volumeUtilization = (usedVolume / totalVolume) * 100;
