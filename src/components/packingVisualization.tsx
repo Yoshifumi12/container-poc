@@ -58,9 +58,9 @@ const PackingVisualization: React.FC = () => {
           <div className="p-4 bg-gray-50 rounded-lg">
             <h3 className="font-medium mb-2">Container Specifications:</h3>
             <div className="grid grid-cols-2 gap-2 text-sm">
+              <div>Length: {selectedContainer.length}m</div>
               <div>Width: {selectedContainer.width}m</div>
               <div>Height: {selectedContainer.height}m</div>
-              <div>Length: {selectedContainer.length}m</div>
               <div>Max Weight: {selectedContainer.maxWeight}kg</div>
             </div>
           </div>
