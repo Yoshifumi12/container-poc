@@ -68,6 +68,21 @@ const ItemForm: React.FC<ItemFormProps> = ({ items, onItemsChange }) => {
 
         <div>
           <label className="block text-sm font-medium mb-1">
+            Length <span className="text-xs text-gray-500">(cm)</span>
+          </label>
+          <input
+            type="number"
+            placeholder="100"
+            value={cmLength}
+            onChange={(e) => setCmLength(e.target.value)}
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            min="1"
+            step="1"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">
             Width <span className="text-xs text-gray-500">(cm)</span>
           </label>
           <input
@@ -90,21 +105,6 @@ const ItemForm: React.FC<ItemFormProps> = ({ items, onItemsChange }) => {
             placeholder="110"
             value={cmHeight}
             onChange={(e) => setCmHeight(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            min="1"
-            step="1"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1">
-            Length <span className="text-xs text-gray-500">(cm)</span>
-          </label>
-          <input
-            type="number"
-            placeholder="100"
-            value={cmLength}
-            onChange={(e) => setCmLength(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             min="1"
             step="1"
@@ -150,9 +150,9 @@ const ItemForm: React.FC<ItemFormProps> = ({ items, onItemsChange }) => {
               <div>
                 <span className="font-medium">{item.name}</span>
                 <div className="flex gap-3 text-xs text-gray-600 mt-1">
+                  <span>L: {(item.length * 100).toFixed(0)} cm</span>
                   <span>W: {(item.width * 100).toFixed(0)} cm</span>
                   <span>H: {(item.height * 100).toFixed(0)} cm</span>
-                  <span>L: {(item.length * 100).toFixed(0)} cm</span>
                   <span>Weight: {item.weight} kg</span>
                 </div>
               </div>
